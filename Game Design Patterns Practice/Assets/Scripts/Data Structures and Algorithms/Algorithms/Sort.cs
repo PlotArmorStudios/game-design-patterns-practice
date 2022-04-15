@@ -6,8 +6,15 @@ public class Sort : UseArray
     {
         Debug.Log("Original array: ");
         Display(ArrayUnsorted);
+        
+        //SelectionSort
+        // Debug.Log("Sorted array: ");
+        // SelectionSort(ArrayUnsorted);
+        // Display(ArrayUnsorted);
+        
+        //InsertionSort
         Debug.Log("Sorted array: ");
-        SelectionSort(ArrayUnsorted);
+        InsertionSort(ArrayUnsorted);
         Display(ArrayUnsorted);
     }
 
@@ -34,6 +41,23 @@ public class Sort : UseArray
             int temp = array[position];
             array[position] = array[currentNumber];
             array[currentNumber] = temp;
+        }
+    }
+
+    public void InsertionSort(int[] array)
+    {
+        for (int i = 1; i < array.Length; i++)
+        {
+            int comparison = array[i]; //stores the present element at array[i]. will be used to insert the element to its proper position
+            int position = i; //used to compare the element at the index of position with comparison
+            //find the position where the element can be inserted
+            while (position > 0 && array[position - 1] > comparison) //after inserting the element to the index of the position, all the elements to the left must be moved right to be sorted
+            {
+                array[position] = array[position - 1]; //move the element to the right
+                position = position - 1;
+            }
+
+            array[position] = comparison;
         }
     }
 }
