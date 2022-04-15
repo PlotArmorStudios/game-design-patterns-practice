@@ -6,15 +6,18 @@ public class Sort : UseArray
     {
         Debug.Log("Original array: ");
         Display(ArrayUnsorted);
-        
+
         //SelectionSort
         // Debug.Log("Sorted array: ");
         // SelectionSort(ArrayUnsorted);
         // Display(ArrayUnsorted);
-        
+
         //InsertionSort
+        // Debug.Log("Sorted array: ");
+        // InsertionSort(ArrayUnsorted);
+        // Display(ArrayUnsorted);
         Debug.Log("Sorted array: ");
-        InsertionSort(ArrayUnsorted);
+        BubbleSort(ArrayUnsorted);
         Display(ArrayUnsorted);
     }
 
@@ -48,16 +51,36 @@ public class Sort : UseArray
     {
         for (int i = 1; i < array.Length; i++)
         {
-            int comparison = array[i]; //stores the present element at array[i]. will be used to insert the element to its proper position
+            int comparison =
+                array[i]; //stores the present element at array[i]. will be used to insert the element to its proper position
             int position = i; //used to compare the element at the index of position with comparison
             //find the position where the element can be inserted
-            while (position > 0 && array[position - 1] > comparison) //after inserting the element to the index of the position, all the elements to the left must be moved right to be sorted
+            while (
+                position > 0 &&
+                array[position - 1] >
+                comparison) //after inserting the element to the index of the position, all the elements to the left must be moved right to be sorted
             {
                 array[position] = array[position - 1]; //move the element to the right
                 position = position - 1;
             }
 
             array[position] = comparison;
+        }
+    }
+
+    public void BubbleSort(int[] array) //the largest elements are sorted to their place first
+    {
+        for (int pass = array.Length - 1; pass >= 0; pass--) //pass = array.Length - 1 the idea idea the largest element will be in its place in the first pass
+        {
+            for (int j = 0; j < pass; j++)// j < pass because we only need to traverse until the second largest element. largest element is already sorted
+            {
+                if (array[j] > array[j + 1])
+                {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
         }
     }
 }
