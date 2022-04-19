@@ -6,21 +6,21 @@ public static class GridShifter
 {
     public static List<List<int>> ShiftGrid(int[][] grid, int k)
     {
-        int m = grid.Length;
-        int n = grid[0].Length;
-        int elements = m*n;
+        int numRows = grid.Length;
+        int numColumns = grid[0].Length;
+        int elements = numRows*numColumns;
         k = k % elements;
         
         List<List<int>> result = new List<List<int>>();
         
-        for(int i = 0; i < m; i++)
+        for(int i = 0; i < numRows; i++)
         {
             List<int> rows = new List<int>();
             
-            for(int j = 0; j < n; j++)
+            for(int j = 0; j < numColumns; j++)
             {
-                int index = FindShiftedIndex(i, j, n, k, elements);
-                rows.Add(grid[index/n][index%n]);
+                int index = FindShiftedIndex(i, j, numColumns, k, elements);
+                rows.Add(grid[index/numColumns][index%numColumns]);
             }
             
             result.Add(rows);
