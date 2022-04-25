@@ -3,7 +3,8 @@ using UnityEngine;
 public class DisplayLinkedList : MonoBehaviour
 {
     private LinkedList _list = new LinkedList();
-    
+    private LinkedList _newList = new LinkedList();
+
     private void Start()
     {
         _list.AddLast(7);
@@ -35,7 +36,30 @@ public class DisplayLinkedList : MonoBehaviour
 
         int element = _list.RemoveFirst();
         Debug.Log($"Removed element {element}");
+        _list.Display();
         Debug.Log($"Size: {_list.Size}");
         
+        element = _list.RemoveLast();
+        Debug.Log($"Removed element {element}");
+        _list.Display();
+        Debug.Log($"Size: {_list.Size}");
+        
+        element = _list.RemoveAny(3);
+        Debug.Log($"Removed element {element}");
+        _list.Display();
+        Debug.Log($"Size: {_list.Size}");
+        
+        element = _list.Search(12);
+        Debug.Log($"Element is at index {element}");
+        _list.Display();
+        Debug.Log($"Size: {_list.Size}");
+
+        _newList.Insertsorted(7);
+        _newList.Insertsorted(3);
+        _newList.Insertsorted(12);
+        _newList.Insertsorted(8);
+        _newList.Insertsorted(3);
+        _newList.Display();
+        Debug.Log($"Size: {_list.Size}");
     }
 }
