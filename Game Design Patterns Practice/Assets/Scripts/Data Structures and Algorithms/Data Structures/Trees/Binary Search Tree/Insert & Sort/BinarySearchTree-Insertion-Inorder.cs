@@ -51,13 +51,13 @@ namespace BinaryTrees
                 else
                     temp.right = n; //should be left node
             }
-            else //binary search (sub)tree is empty
+            else //root is null. binary search tree is empty, add the first node to it
                 Root = n;
         }
 
         public void inorder(Node temproot)
         {
-            if (temproot != null)
+            if (temproot != null) //is the temp root empty? if it's not eempty, that means the subtree has nodes
             {
                 inorder(temproot.left);
                 Debug.Log(temproot.element + " ");
