@@ -114,7 +114,8 @@ namespace LearnDSAlgorithms
                 preorder(temproot.right);
             }
         }
-
+        
+        //iterative solution: https://www.youtube.com/watch?v=sMI4RBEZyZ4&ab_channel=KevinNaughtonJr.
         public void postorder(Node temproot)
         {
             if (temproot != null)
